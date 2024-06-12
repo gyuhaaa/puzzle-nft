@@ -30,8 +30,8 @@ const My: FC = () => {
   useEffect(() => console.log(mintedList), [mintedList]);
 
   return (
-    <Flex flexDir="column" w="100%" mb={[10, 10, 20]}>
-      <Grid templateColumns={"repeat(2, 1fr)"} justifyItems={"center"} gap={8}>
+    <Flex flexDir="column" w="100%" my={[10, 10, 20]}>
+      <Grid templateColumns="repeat(2, 1fr)" justifyItems="center" gap={8}>
         {mintedList.map((v, i) => {
           if (v > 0) {
             return <NftCard key={i} tokenId={i + 1} amount={v} />;
