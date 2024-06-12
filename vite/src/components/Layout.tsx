@@ -9,6 +9,7 @@ import { mintContractAddress } from "../lib/contractAddress";
 
 export interface OutletContext {
   signer: JsonRpcSigner | null;
+  setSigner: Dispatch<SetStateAction<JsonRpcSigner | null>>;
   mintContract: Contract | null;
 }
 
@@ -28,7 +29,7 @@ const Layout: FC = () => {
     <Flex maxW={768} mx="auto" minH="100vh" flexDir="column">
       <Header signer={signer} setSigner={setSigner} />
       <Flex flexGrow={1}>
-        <Outlet context={{ signer, mintContract }} />
+        <Outlet context={{ signer, setSigner, mintContract }} />
       </Flex>
     </Flex>
   );
