@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Flex,
   Image,
   Modal,
   ModalBody,
@@ -21,8 +20,6 @@ interface MintModalProps {
 }
 
 const MintModal: FC<MintModalProps> = ({ isOpen, onClose, stsNftMetadata }) => {
-  if (!stsNftMetadata) return <Flex>메타데이터가 없습니다.</Flex>;
-
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -41,17 +38,17 @@ const MintModal: FC<MintModalProps> = ({ isOpen, onClose, stsNftMetadata }) => {
               px={[2, 2, 4]}
               rounded="full"
             >
-              x{stsNftMetadata.amount}
+              x{stsNftMetadata?.amount}
             </Text>
             <Image
-              src={`/images/puzzle/${stsNftMetadata.tokenId}.png`}
-              alt={stsNftMetadata.name}
+              src={`/images/puzzle/${stsNftMetadata?.tokenId}.png`}
+              alt={stsNftMetadata?.name}
             />
           </Box>
           <Text fontSize={[20, 20, 28]} fontWeight="semibold">
-            {stsNftMetadata.name}
+            {stsNftMetadata?.name}
           </Text>
-          <Text fontSize={[18, 18, 24]}>{stsNftMetadata.description}</Text>
+          <Text fontSize={[18, 18, 24]}>{stsNftMetadata?.description}</Text>
         </ModalBody>
 
         <ModalFooter>
